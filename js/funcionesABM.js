@@ -19,7 +19,7 @@ function GuardarVoto()
 		}
 	});
 	funcionAjax.done(function(retorno){
-			mostrarvoto();
+		mostrarvoto();
 		$("#informe").html("cantidad de agregados "+ retorno);	
 		
 	});
@@ -55,7 +55,7 @@ function EditarVoto(idParametro)
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"TraerVotos",
+			queHacer:"TraerVotosId",
 			id:idParametro	
 		}
 	});

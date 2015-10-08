@@ -2,16 +2,16 @@
 session_start();
 if(isset($_SESSION['registrado']))
 {
-	require_once("../clases/AccesoDatos.php");
-	require_once("../clases/voto.php");
-	$arrayDeVotos=voto::TraerTodoLosVotos();
+	require_once("clases/AccesoDatos.php");
+	require_once("clases/voto.php");
+	$arrayDeVotos=voto::TraerVotos();
 	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 
  ?>
 <table class="table"  style=" background-color: beige;">
 	<thead>
 		<tr>
-			<th>DNI</th><th>Provincia</th><th>Candidato</th><th>Sexo</th>
+			<th>Editar</th><th>Borrar</th><th>DNI</th><th>Provincia</th><th>Candidato</th><th>Sexo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,8 +20,8 @@ if(isset($_SESSION['registrado']))
 		
 foreach ($arrayDeVotos as $voto) {
 	echo"<tr>
-			<td><a onclick='Editarvoto($voto->id)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
-			<td><a onclick='Borrarvoto($voto->id)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
+			<td><a onclick='EditarVoto($voto->id)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
+			<td><a onclick='BorrarVoto($voto->id)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
 			<td>$voto->dni</td>
 			<td>$voto->provincia</td>
 			<td>$voto->candidato</td>

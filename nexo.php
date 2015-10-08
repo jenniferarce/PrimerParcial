@@ -36,6 +36,10 @@ switch ($queHago) {
 			echo json_encode($voto) ;
 
 	break;
+	case 'TraerVotosId':
+		$voto = voto::TraerVotosId($_POST['id']);	
+		echo json_encode($voto) ;
+	break;
 	/*case 'contarVotos':
 			$voto = new voto();
 			$voto->cont=$_POST['cont'];

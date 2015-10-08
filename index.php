@@ -17,9 +17,13 @@
  <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> <!--para google maps-->
+
+
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
  <script type="text/javascript" src="js/funciones.js"></script>
  <script type="text/javascript" src="js/funcionesABM.js"></script>
+
 
 <script type="text/javascript">
 

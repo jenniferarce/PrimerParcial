@@ -18,6 +18,9 @@ if(isset($_SESSION['registrado'])){  ?>
         <input type="radio" name="sexo" id="sexo" value="Masculino" required>Masculino
         <input type="radio" name="sexo" id="sexo" value="Femenino" required>Femenino<br>
 
+        <input readonly   type="hidden"    id="id" class="form-control" >
+        <input readonly   type="hidden"    id="dni" class="form-control" value="<?php echo $_SESSION['registrado'];?>">
+
         <button  class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-floppy-save">&nbsp;&nbsp;</span>Guardar </button>
      
       </form>
