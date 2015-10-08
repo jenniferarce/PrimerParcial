@@ -5,8 +5,11 @@ switch ($queHago) {
 	case 'mostrarlogin':
 			include("partes/login.php");
 		break;
+	case 'votacion':
+			include("partes/formVotar.php");
+		break;
 	case 'mostrarvoto':
-			include("");
+			include("partes/formListado.php");
 		break;
 	default:
 		# code...

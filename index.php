@@ -18,7 +18,7 @@
  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-<script type="text/javascript" src="js/funciones.js"></script>
+ <script type="text/javascript" src="js/funciones.js"></script>
 
 
 
@@ -43,7 +43,7 @@
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li><a onclick="mostrarlogin()" class="btn">Ingreso</a></li>
-				<li><a onclick="" class="btn">Ir a VOTACIÓN</a> </li>
+				<li><a onclick="votacion()" class="btn">Ir a VOTACIÓN</a> </li>
 				<li><a onclick="" class="btn">Listado de Votaciones</a> </li>
 				
 			</ul>
