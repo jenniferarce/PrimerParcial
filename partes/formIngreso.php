@@ -10,7 +10,7 @@ if(!isset($_SESSION['registrado'])){  ?>
       <form  class="form-ingreso " onsubmit="validarLogin();return false;">
         <h2 class="form-ingreso-heading">Ingrese sus datos</h2>
           <label for="dni" class="sr-only">DNI</label>
-          <input type="number" id="dni" class="form-control" placeholder="Ingrese dni sin puntos" min="1000000" max="99999999" required autofocus>
+          <input type="number" id="dni" class="form-control" placeholder="XXXXXXXX" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required autofocus>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
       </form>
 

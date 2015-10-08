@@ -16,7 +16,6 @@ function mostrarlogin()
 	});
 	funcionAjax.always(function(retorno){
 		//alert("siempre "+retorno.statusText);
-
 	});
 }
 function votacion()
@@ -40,14 +39,27 @@ function votacion()
 
 function mostrarvoto()
 {
+	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{queHacer:"mostrarvoto"}
+	});
+
+	funcionAjax.done(function(retorno){
+
+		$("#principal").html(retorno);
+	});
+	funcionAjax.fail(function(retorno){
+		$("#informe").html(retorno.responseText);	
+	});
+
+	//deslogear();
 
 }
-
 
 function validarLogin()
 {
 		var varUsuario=$("#dni").val();
-		//var varClave=$("#clave").val();
 		var recordar=$("#recordarme").is(':checked');
 
 	var funcionAjax=$.ajax({
@@ -78,7 +90,6 @@ function deslogear()
 	funcionAjax.done(function(retorno){
 			MostarBotones();
 			mostrarlogin();
-			//MostarLogin();
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");
 			$("#BotonLogin").removeClass("btn-danger");
@@ -98,3 +109,22 @@ function MostarBotones()
 		//$("#informe").html("Correcto BOTONES!!!");	
 	});
 }
+/*function contarVotos()
+{
+	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{queHacer:"contarVotos",
+			cont:valor}
+	});
+
+	funcionAjax.done(function(retorno){
+
+		$("#principal").html(retorno);
+		$("#informe").html("Votos: "+ retorno);	
+	});
+	funcionAjax.fail(function(retorno){
+		$("#informe").html(retorno.responseText);	
+	});
+
+}*/

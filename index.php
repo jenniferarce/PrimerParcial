@@ -19,9 +19,35 @@
 
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
  <script type="text/javascript" src="js/funciones.js"></script>
+ <script type="text/javascript" src="js/funcionesABM.js"></script>
+
+<script type="text/javascript">
+
+function contador()
+{
+	$(document).ready(function(){
+    $("#Contador").submit(function() {
+     //Check whether the cookie is already set
+     var cookiename='cont';
+
+      //$.cookie('cont',null,{path:'/'});
+     if($.cookie(cookiename))
+     {
+      //set cont cookie with incremented cookie value
+      $.cookie('cont',(parseInt($.cookie('cont')) + 1),{expires:1,path:'/'});
+     }
+     else
+      {
+      //set cont to 1 for first if the cookie is not already set
+      $.cookie('cont',1,{expires:1,path:'/'});
+      }
+});
+});
+
+}
 
 
-
+</script>
 
 
 </head>
@@ -91,7 +117,12 @@
 			<h4 class="widgettitle">Contador de votos</h4>
 				<div id="Contador">
 				<!--contenido dinamico cargado por ajax-->
-				</div>
+				<!--<?php  echo "<h3> document.cookie </h3>";?>-->  
+
+				<input type="text" class="form-control" disabled>
+				<input type="submit" id="cont" value="Contar" onclick="contador()">
+
+				</div> <!-- ¿¿??-->
 			
 		</section>
 		<!-- /.widget -->
