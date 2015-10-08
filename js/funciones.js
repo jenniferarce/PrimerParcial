@@ -8,7 +8,7 @@ function mostrarlogin()
 	});
 	funcionAjax.done(function(retorno){
 		$("#principal").html(retorno);
-		$("#informe").html("Correcto login!!!");	
+		//$("#informe").html("Correcto login!!!");	
 	});
 	funcionAjax.fail(function(retorno){
 		//$("#botonesABM").html(":(");
@@ -26,9 +26,15 @@ function votacion()
 		type:"post",
 		data:{queHacer:"votacion"}
 	});
+
 	funcionAjax.done(function(retorno){
+
 		$("#principal").html(retorno);
-		$("#informe").html("a votar!!!");	
+		//$("#informe").html("a votar!!!");	
+	});
+	funcionAjax.fail(function(retorno){
+		//$("#botonesABM").html(":(");
+		$("#informe").html(retorno.responseText);	
 	});
 }
 
@@ -40,32 +46,39 @@ function mostrarvoto()
 
 function validarLogin()
 {
-		var varUsuario=$("#correo").val();
-		var varClave=$("#clave").val();
+		var varUsuario=$("#dni").val();
+		//var varClave=$("#clave").val();
 		var recordar=$("#recordarme").is(':checked');
-		
-		//$("#informe").html("<img src='imagenes/ajax-loader.gif' style='width: 30px;'/>");
-	
 
 	var funcionAjax=$.ajax({
 		url:"php/validarUsuario.php",
 		type:"post",
 		data:{
 			recordarme:recordar,
-			usuario:varUsuario,
-			clave:varClave
+			usuario:varUsuario}
 		});
+	funcionAjax.done(function(retorno){
+		if(retorno="No-esta"){
+			mostrarlogin();
+			$("#usuario").html(retorno);
+		}
+		else{}
+	});
+	funcionAjax.fail(function(retorno){
+
+	});
 }
 
 function deslogear()
 {	
 	var funcionAjax=$.ajax({
-		url:"php/deslogearUsuario.php",
-		type:"post"		
+		url:"php/logout.php",
+		type:"post",	
 	});
 	funcionAjax.done(function(retorno){
 			MostarBotones();
-			MostarLogin();
+			mostrarlogin();
+			//MostarLogin();
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");
 			$("#BotonLogin").removeClass("btn-danger");
@@ -82,6 +95,6 @@ function MostarBotones()
 	});
 	funcionAjax.done(function(retorno){
 		//$("#botonesABM").html(retorno);
-		$("#informe").html("Correcto BOTONES!!!");	
+		//$("#informe").html("Correcto BOTONES!!!");	
 	});
 }
