@@ -18,13 +18,18 @@
  <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-<script type="text/javascript" src="js/funcionesAjax.js"></script>
-<script type="text/javascript" src="js/funcionesLogin.js"></script>
-<script type="text/javascript" src="js/funcionesABM.js"></script>
+<script type="text/javascript" src="js/funciones.js"></script>
+
+
+
+
 
 </head>
 
 <body>
+
+
+
 
 <div id="pagewrap">
 
@@ -37,7 +42,7 @@
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
-				<li><a onclick="" class="btn">Ingreso</a></li>
+				<li><a onclick="mostrarlogin()" class="btn">Ingreso</a></li>
 				<li><a onclick="" class="btn">Ir a VOTACIÓN</a> </li>
 				<li><a onclick="" class="btn">Listado de Votaciones</a> </li>
 				
@@ -57,7 +62,7 @@
 		<article  class="post clearfix">
 
 			<header  >
-				<h1 class="post-title"><a href="#">AlumnoNombre.Apellido</a></h1>
+				<h1 class="post-title"><a href="#">Jennifer.Arce</a></h1>
 				<p class="post-meta"><time class="post-date" datetime="2011-05-08" pubdate>2015</time> <em>en</em> <a href="#">UTN FRA</a></p>
 			</header>
 			<hr>
