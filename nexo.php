@@ -6,7 +6,7 @@ $queHago=$_POST['queHacer'];
 
 switch ($queHago) {
 	case 'mostrarlogin':
-			include("partes/login.php");
+			include("partes/formIngreso.php");
 		break;
 	case 'votacion':
 			include("partes/formVotar.php");
