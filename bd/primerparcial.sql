@@ -28,13 +28,13 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `BorrarVoto`(IN `idd` INT)
     NO SQL
 delete from votos where id=idd$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarVoto`(IN `dn` INT, IN `prov` VARCHAR(20), IN `cand` VARCHAR(20), IN `se` VARCHAR(20), IN `lo` VARCHAR(50), IN `di` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarVoto`(IN `dn` INT, IN `prov` VARCHAR(20), IN `lo` VARCHAR(50), IN `di` VARCHAR(50), IN `cand` VARCHAR(20), IN `se` VARCHAR(20))
     NO SQL
 INSERT into votos (dni,provincia,localidad,direccion,candidato,sexo)values(dn,prov,lo,di,cand,se)$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarVoto`(IN `dn` INT(20), IN `prov` VARCHAR(20), IN `cand` VARCHAR(20), IN `se` VARCHAR(20), IN `idd` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarVoto`(IN `dn` INT(20), IN `prov` VARCHAR(20), IN `lo` VARCHAR(50), IN `di` VARCHAR(50),IN `cand` VARCHAR(20), IN `se` VARCHAR(20), IN `idd` INT)
     NO SQL
-UPDATE votos set dni=dn,provincia=prov,candidato=cand,sexo=se WHERE id=idd$$
+UPDATE votos set dni=dn,provincia=prov,localidad=lo,direccion=di,candidato=cand,sexo=se WHERE id=idd$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerVotos`()
     NO SQL
