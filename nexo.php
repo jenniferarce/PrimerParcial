@@ -25,10 +25,11 @@ switch ($queHago) {
 			$voto->id=$_POST['id'];
 			$voto->dni=$_POST['dni'];
 			$voto->provincia=$_POST['provincia'];
-			$voto->candidato=$_POST['candidato'];
-			$voto->sexo=$_POST['sexo'];
 			$voto->localidad=$_POST['localidad'];
 			$voto->direccion=$_POST['direccion'];
+			$voto->candidato=$_POST['candidato'];
+			$voto->sexo=$_POST['sexo'];
+			
 			$cantidad=$voto->GuardarVoto();
 			echo $cantidad;
 	break;

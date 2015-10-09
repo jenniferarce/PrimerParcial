@@ -23,6 +23,7 @@ function GuardarVoto()
 		}
 	});
 	funcionAjax.done(function(retorno){
+		//alert(retorno);
 		mostrarvoto();
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
@@ -53,6 +54,7 @@ function BorrarVoto(idParametro)
 
 function EditarVoto(idParametro)
 {
+	votacion();
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -61,21 +63,36 @@ function EditarVoto(idParametro)
 			id:idParametro	
 		     }
 	});
-		votacion();
+		
 	funcionAjax.done(function(retorno){
 		var voto =JSON.parse(retorno);
-		alert(retorno);	
+		//alert(retorno);
 		$("#id").val(voto.id);
 		$("#dni").val(voto.dni);
 		$("#provincia").val(voto.provincia);
 		$("#localidad").val(voto.localidad);
-		$("direccion").val(voto.direccion);
+		$("#direccion").val(voto.direccion);
 		$("#candidato").val(voto.candidato);
-		$("#sexo").val(voto.sexo);
+		//$("#sexo").val(voto.sexo);
+		var sexo = voto.sexo;
+
+
+										if(sexo=="Femenino")
+										{
+											$('input[id=sexo][value="Femenino"]').attr('checked', true); 
+										}
+
+										if(sexo=="Masculino")
+										{
+											$('input[id=sexo][value="Masculino"]').attr('checked', true); 
+										}
+
+
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);
 		alert("error");		
 	});	
+	
 }//fin EditarVoto
 

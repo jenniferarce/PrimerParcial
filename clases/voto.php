@@ -13,7 +13,7 @@ class voto
 	 public function InsertarVoto()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo,)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo)");
 				$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
 				$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 				$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
@@ -35,15 +35,18 @@ class voto
 	 public function ModificarVoto()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo,:id");
-			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo,:id)");
 			$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
 			$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 			$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
 			$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 			$consulta->bindValue(':candidato',$this->candidato, PDO::PARAM_STR);
 			$consulta->bindValue(':sexo', $this->sexo, PDO::PARAM_STR);
+			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 			return $consulta->execute();
+			return $objetoAccesoDato->RetornarUltimoIdInsertado();
+			//("CALL ModificarVoto('$this->dni','$this->provincia','$this->localidad','$this->direccion','$this->candidato','$this->sexo',':idd'");
+			//"UPDATE votos set dni=:dni,provincia=:provincia,localidad=:localidad,direccion=:direccion,candidato=:candidato,sexo=:sexo where id=:id");
 	 }
 
 	public function GuardarVoto()
@@ -70,7 +73,7 @@ class voto
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerVotosId(:id)");
-			//$consulta->bindvalue(':id',$this->id,PDO::PARAM_INT);
+			$consulta->bindvalue(':id',$id,PDO::PARAM_INT);
 			$consulta->execute();
 			$buscado= $consulta->fetchObject('voto');
 			return $buscado;			
