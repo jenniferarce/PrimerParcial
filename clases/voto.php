@@ -4,6 +4,8 @@ class voto
 	public $id;
 	public $dni;
 	public $provincia;
+	public $localidad;
+	public $direccion;
 	public $candidato;
 	public $sexo;
 	public $cont;
@@ -11,11 +13,14 @@ class voto
 	 public function InsertarVoto()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:candidato,:sexo)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:candidato,:sexo,:localidad,:direccion)");
 				$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
 				$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
+				$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+				$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 				$consulta->bindValue(':candidato', $this->candidato, PDO::PARAM_STR);
 				$consulta->bindValue(':sexo', $this->sexo, PDO::PARAM_STR);
+
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
@@ -51,14 +56,14 @@ class voto
 
 	 }
 	
-		public static function TraerVotos()
+	public static function TraerVotos()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerVotos()");
 			$consulta->execute();			
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "voto");		
 	}
-	
+
 	public static function TraerVotosId($id) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

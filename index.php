@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
 
-function contador()
+/*function contador()
 {
 	$(document).ready(function(){
     $("#Contador").submit(function() {
@@ -48,7 +48,7 @@ function contador()
 });
 });
 
-}
+}*/
 
 
 </script>
@@ -123,8 +123,8 @@ function contador()
 				<!--contenido dinamico cargado por ajax-->
 				<!--<?php  echo "<h3> document.cookie </h3>";?>-->  
 
-				<input type="text" class="form-control" disabled>
-				<input type="submit" id="cont" value="Contar" onclick="contador()">
+				<!--<input type="text" class="form-control" disabled>
+				<input type="submit" id="cont" value="Contar" onclick="contador()"> -->
 
 				</div> <!-- ¿¿??-->
 			

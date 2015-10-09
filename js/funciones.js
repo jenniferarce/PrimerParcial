@@ -20,6 +20,7 @@ function mostrarlogin()
 }
 function votacion()
 {
+
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -35,6 +36,7 @@ function votacion()
 		//$("#botonesABM").html(":(");
 		$("#informe").html(retorno.responseText);	
 	});
+	//deslogear();
 }
 
 function mostrarvoto()
@@ -53,7 +55,7 @@ function mostrarvoto()
 		$("#informe").html(retorno.responseText);	
 	});
 
-	//deslogear();
+	
 
 }
 

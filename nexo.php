@@ -27,6 +27,8 @@ switch ($queHago) {
 			$voto->provincia=$_POST['provincia'];
 			$voto->candidato=$_POST['candidato'];
 			$voto->sexo=$_POST['sexo'];
+			$voto->localidad=$_POST['localidad'];
+			$voto->direccion=$_POST['direccion'];
 			$cantidad=$voto->GuardarVoto();
 			echo $cantidad;
 	break;
@@ -37,8 +39,8 @@ switch ($queHago) {
 
 	break;
 	case 'TraerVotosId':
-		$voto = voto::TraerVotosId($_POST['id']);	
-		echo json_encode($voto) ;
+		$voto = voto::TraerVotosId($_POST['id']);	 
+		echo json_encode($voto);
 	break;
 	/*case 'contarVotos':
 			$voto = new voto();

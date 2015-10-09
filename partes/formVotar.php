@@ -9,6 +9,8 @@ if(isset($_SESSION['registrado'])){  ?>
       <form class="form-ingreso" onsubmit="GuardarVoto();return false">
         <h2 class="form-ingreso-heading">Voto</h2>
         <input type="text"  maxlength="20"  id="provincia" title="Se necesita un nombre de provincia" class="form-control" placeholder="Provincia" required autofocus>
+           <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" class="form-control" placeholder="Localidad">
+          <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="Direccion">
         <select name="candidato" id="candidato" class="form-control">
           <option selected value="Macri">Macri</option>
           <option value="Massa">Massa</option>
