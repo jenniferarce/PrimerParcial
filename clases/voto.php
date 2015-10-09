@@ -13,7 +13,7 @@ class voto
 	 public function InsertarVoto()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:candidato,:sexo,:localidad,:direccion)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo,)");
 				$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
 				$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 				$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
@@ -35,11 +35,13 @@ class voto
 	 public function ModificarVoto()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarVoto(:dni,:provincia,:candidato,:sexo,:id");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarVoto(:dni,:provincia,:localidad,:direccion,:candidato,:sexo,:id");
 			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 			$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
 			$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
-			$consulta->bindValue(':candidato', $this->candidato, PDO::PARAM_STR);
+			$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+			$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
+			$consulta->bindValue(':candidato',$this->candidato, PDO::PARAM_STR);
 			$consulta->bindValue(':sexo', $this->sexo, PDO::PARAM_STR);
 			return $consulta->execute();
 	 }

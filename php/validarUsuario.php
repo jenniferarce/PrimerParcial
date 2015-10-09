@@ -1,7 +1,6 @@
 <?php 
 session_start();
 $usuario=$_POST['usuario'];
-//$clave=$_POST['clave'];
 $recordar=$_POST['recordarme'];
 
 $retorno;

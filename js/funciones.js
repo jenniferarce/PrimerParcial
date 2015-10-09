@@ -17,7 +17,8 @@ function mostrarlogin()
 	funcionAjax.always(function(retorno){
 		//alert("siempre "+retorno.statusText);
 	});
-}
+}//fin mostrarlogin
+
 function votacion()
 {
 
@@ -28,16 +29,13 @@ function votacion()
 	});
 
 	funcionAjax.done(function(retorno){
-
 		$("#principal").html(retorno);
-		//$("#informe").html("a votar!!!");	
 	});
 	funcionAjax.fail(function(retorno){
-		//$("#botonesABM").html(":(");
 		$("#informe").html(retorno.responseText);	
 	});
 	//deslogear();
-}
+}//fin votacion
 
 function mostrarvoto()
 {
@@ -54,10 +52,7 @@ function mostrarvoto()
 	funcionAjax.fail(function(retorno){
 		$("#informe").html(retorno.responseText);	
 	});
-
-	
-
-}
+}//fin mostrarvoto
 
 function validarLogin()
 {
@@ -81,7 +76,7 @@ function validarLogin()
 	funcionAjax.fail(function(retorno){
 
 	});
-}
+}//fin validarLogin
 
 function deslogear()
 {	
@@ -95,10 +90,10 @@ function deslogear()
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");
 			$("#BotonLogin").removeClass("btn-danger");
-			$("#BotonLogin").addClass("btn-primary");
-			
+			$("#BotonLogin").addClass("btn-primary");		
 	});	
-}
+}//fin deslogear
+
 function MostarBotones()
 {		//alert(queMostrar);
 	var funcionAjax=$.ajax({
@@ -110,7 +105,8 @@ function MostarBotones()
 		//$("#botonesABM").html(retorno);
 		//$("#informe").html("Correcto BOTONES!!!");	
 	});
-}
+}//fin MostarBotones
+
 /*function contarVotos()
 {
 	var funcionAjax=$.ajax({

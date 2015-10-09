@@ -24,13 +24,12 @@ function GuardarVoto()
 	});
 	funcionAjax.done(function(retorno){
 		mostrarvoto();
-		$("#informe").html("cantidad de agregados "+ retorno);	
-		
+		$("#informe").html("cantidad de agregados "+ retorno);
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 	});	
-}
+}//fin GuardarVoto
 
 function BorrarVoto(idParametro)
 {
@@ -45,13 +44,12 @@ function BorrarVoto(idParametro)
 	});
 	funcionAjax.done(function(retorno){
 		mostrarvoto();
-		$("#informe").html("cantidad de eliminados "+ retorno);	
-		
+		$("#informe").html("cantidad de eliminados "+ retorno);		
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 	});	
-}
+}//fin BorrarVoto
 
 function EditarVoto(idParametro)
 {
@@ -63,12 +61,15 @@ function EditarVoto(idParametro)
 			id:idParametro	
 		     }
 	});
+		votacion();
 	funcionAjax.done(function(retorno){
 		var voto =JSON.parse(retorno);
 		alert(retorno);	
 		$("#id").val(voto.id);
 		$("#dni").val(voto.dni);
 		$("#provincia").val(voto.provincia);
+		$("#localidad").val(voto.localidad);
+		$("direccion").val(voto.direccion);
 		$("#candidato").val(voto.candidato);
 		$("#sexo").val(voto.sexo);
 	});
@@ -76,6 +77,5 @@ function EditarVoto(idParametro)
 		$("#informe").html(retorno.responseText);
 		alert("error");		
 	});	
-	votacion();
-}
+}//fin EditarVoto
 

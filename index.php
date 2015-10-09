@@ -23,7 +23,8 @@
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
  <script type="text/javascript" src="js/funciones.js"></script>
  <script type="text/javascript" src="js/funcionesABM.js"></script>
-
+ <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
+ <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
 
 <script type="text/javascript">
 

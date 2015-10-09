@@ -42,6 +42,9 @@ switch ($queHago) {
 		$voto = voto::TraerVotosId($_POST['id']);	 
 		echo json_encode($voto);
 	break;
+	case 'VerEnMapa':
+		include("partes/formMapa.php");
+	break;
 	/*case 'contarVotos':
 			$voto = new voto();
 			$voto->cont=$_POST['cont'];
