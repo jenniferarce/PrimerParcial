@@ -1,6 +1,6 @@
 function VerEnMapa(prov, dire, loc, id)
 {
-    //alert(prov + dire +  loc);
+    alert(prov + dire +  loc);
     var punto = dire +", " +  loc  +", " +  prov +", Argentina";
     console.log(punto);
     var funcionAjax=$.ajax({

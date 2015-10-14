@@ -28,7 +28,7 @@ foreach ($arrayDeVotos as $voto) {
 			<td>$voto->direccion</td>
 			<td>$voto->candidato</td>
 			<td>$voto->sexo</td>
-			<td><a onclick='VerEnMapa($voto->provincia,$voto->direccion,$voto->localidad,$voto->id)' class='btn btn-info'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Ver mapa</a></td>
+			<td><a onclick='VerEnMapa('$voto->provincia','$voto->direccion','$voto->localidad','$voto->id')' class='btn btn-info'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Ver mapa</a></td>
 		</tr>   ";
 }
 		 ?>
